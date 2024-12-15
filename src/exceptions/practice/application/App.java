@@ -40,5 +40,6 @@ public class App {
         // 3 - Utilize a API pública do GitHub para obter os dados do perfil dos usuarios
         System.out.println("Digite o nome de usuário do GitHub para consultar informações: ");
         String username = leitura.nextLine();
+
     }
 }
