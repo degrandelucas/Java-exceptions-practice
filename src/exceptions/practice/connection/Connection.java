@@ -7,9 +7,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class Connection {
+    private HttpClient client;
+
+    public Connection() {
+        this.client = HttpClient.newBuilder().build();
+    }
 
     public String fetchUserProfile(String username) throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newBuilder().build();
         String url = "https://api.github.com/users/" + username;
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
