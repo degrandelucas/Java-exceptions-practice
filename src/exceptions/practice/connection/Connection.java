@@ -7,15 +7,18 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class Connection {
-    HttpClient client = HttpClient.newBuilder().build();
-    HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://foo.com/"))
-            .header("Content-Type", "application/json")
-            .GET()
-            .build();
-    HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
+    public String fetchUserProfile(String username) throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newBuilder().build();
+        String url = "https://api.github.com/users/" + username;
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Accept", "application/vnd.github+json") //cabecalho
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-    public Connection() throws IOException, InterruptedException {
+        return response.body();// Retorna o JSON puro
+
     }
 }

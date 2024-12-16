@@ -1,9 +1,5 @@
 package exceptions.practice.application;
 
-import exceptions.practice.exceptions.ExceptionLoginInvalido;
-import exceptions.practice.model.Cadastro;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class App {
